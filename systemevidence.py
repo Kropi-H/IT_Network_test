@@ -25,3 +25,12 @@ class SystemEvidence():
             for i, width in zip(jmeno, column_widths[:-1]):
                 print("{:<{}}".format(i, width), end='\t')
             print()
+
+    def vrat_uzivatele_podle_jmena_prijmeni(self,jmeno,prijmeni):
+        self.__jmeno = jmeno
+        self.__prijmeni = prijmeni
+        for pojistenec in SystemEvidence.pojistenci:
+            if self.__jmeno == pojistenec[0] and self.__prijmeni == pojistenec[1]:
+                print(pojistenec)
+
+        
