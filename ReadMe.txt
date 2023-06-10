@@ -15,3 +15,7 @@ Aplikace je naprogramována podle dobrých praktik
 Využívejte konstruktory pro inicializaci objektů
 toString() pro jejich výpis
 Oddělujte kód do samostatných tříd a souborů
+
+
+1. Vytvořit z proměnných instanci pojistence (jmeno, prijmeni, vek, telefonni cislo)
+2. Ulozit ho do listu pojistenců
