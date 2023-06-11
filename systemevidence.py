@@ -45,7 +45,7 @@ class SystemEvidence():
                 print("{:<{}}".format(i, width), end='\t')
             print()
 
-    def vrat_uzivatele_podle_jmena_prijmeni(self,jmeno,prijmeni):
+    def vyhledej_pojistence(self,jmeno,prijmeni):
         """
         Vrací uzivatele, kterého hledáme v listu pojistenci podle jmena a prijmeni nebo string o nenalezeni
         Hledáni jsou podle indexů pojistenec[0] a pojistenec[1]
@@ -64,4 +64,5 @@ class SystemEvidence():
         else:
             return f"Pojistenec {self.__jmeno} {self.__prijmeni} u nás není evidovaný!"
 
-
+    def vrat_pojistence(self, jmeno, prijmeni):
+        return self.vyhledej_pojistence(jmeno, prijmeni)

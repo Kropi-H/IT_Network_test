@@ -14,4 +14,4 @@ evidencnisystem.vypis_pojistencu()
 
 print(evidencnisystem.vrat_posledni_id_uzivatele())
 
-print(evidencnisystem.vrat_uzivatele_podle_jmena_prijmeni("Marcel","Vylulánek"))
+print(evidencnisystem.vrat_pojistence("Marcel","Vypatlánek"))
