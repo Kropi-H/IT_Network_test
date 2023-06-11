@@ -25,6 +25,7 @@ class SystemEvidence():
         """
         pojisteny = [jmeno, prijmeni, vek, telefon, self.vrat_posledni_id_uzivatele() + 1]
         SystemEvidence.pojistenci.append(pojisteny)
+        self.__plnoletost = (vek>=18)
 
     def vrat_posledni_id_uzivatele(self):
         """
@@ -46,16 +47,21 @@ class SystemEvidence():
 
     def vrat_uzivatele_podle_jmena_prijmeni(self,jmeno,prijmeni):
         """
-        Vrací uzivatele, kterého hledáme v listu pojistenci podle jmena a prijmeni.
+        Vrací uzivatele, kterého hledáme v listu pojistenci podle jmena a prijmeni nebo string o nenalezeni
         Hledáni jsou podle indexů pojistenec[0] a pojistenec[1]
         :param jmeno:
         :param prijmeni:
-        :return: String uživatele nebo string o neúspěšném hledání
+        :return: __result jako uživatele nebo string o neúspěšném hledání
         """
         self.__jmeno = jmeno
         self.__prijmeni = prijmeni
+        self.__result = str()
         for pojistenec in SystemEvidence.pojistenci:
             if self.__jmeno == pojistenec[0] and self.__prijmeni == pojistenec[1]:
-                print(pojistenec)
+                self.__result = f"{pojistenec[0]} {pojistenec[1]}"
+        if self.__result:
+            return self.__result
+        else:
+            return f"Pojistenec {self.__jmeno} {self.__prijmeni} u nás není evidovaný!"
 
-        
+
