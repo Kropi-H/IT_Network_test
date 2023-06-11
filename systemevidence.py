@@ -1,4 +1,4 @@
-from pojisteny import Pojisteny
+
 class SystemEvidence():
     """
     Třída reprezentuje vytváření a evidování pojištěnců
@@ -6,7 +6,7 @@ class SystemEvidence():
 
     #Fake list pojistenců. Jen aby tam nějaký na začátku byl ...
     pojistenci = [
-        ["Marcel", "Malý", 68, "666333111", 15]
+        ["Marcel","Malý",68,"666333111",15]
     ]
 
     def __init__(self):
@@ -58,7 +58,7 @@ class SystemEvidence():
         self.__result = str()
         for pojistenec in SystemEvidence.pojistenci:
             if self.__jmeno == pojistenec[0] and self.__prijmeni == pojistenec[1]:
-                self.__result = f"{pojistenec[0]} {pojistenec[1]}"
+                self.__result = f"{pojistenec[0]}\t{pojistenec[1]}\t{pojistenec[2]}\t{pojistenec[3]}"
         if self.__result:
             return self.__result
         else:
