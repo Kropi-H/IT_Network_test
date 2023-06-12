@@ -1,4 +1,5 @@
-
+from system import Pozdrav
+import time
 class SystemEvidence():
     """
     Třída reprezentuje vytváření a evidování pojištěnců
@@ -8,10 +9,6 @@ class SystemEvidence():
     pojistenci = [
         ["Marcel","Malý",68,"666333111",15]
     ]
-
-    def __init__(self):
-        pass
-
 
     def vytvor_pojisteneho(self, jmeno, prijmeni, vek, telefon):
         """
@@ -66,3 +63,50 @@ class SystemEvidence():
 
     def vrat_pojistence(self, jmeno, prijmeni):
         return self.vyhledej_pojistence(jmeno, prijmeni)
+
+class Programrun():
+    evidencnisystem = SystemEvidence()
+
+    while True:
+        print(Pozdrav.get_greet())
+        print(Pozdrav.get_menu())
+        vyber = input()
+        try:
+            vyber = int(vyber)
+        except ValueError:
+            print("Výběr musí být číslo")
+            pokracovat = input("Pokracovat? Y/N: ")
+            if pokracovat != "Y":
+                break
+
+        if vyber == 1:
+            jmeno = input("Zadejte jméno pojištěného:\n").strip()
+            prijmeni = input("Zadejte příjmení pojištěného:\n").strip()
+            telefon = input("Zadejte telefonní číslo:\n").strip()
+            vek = input("Zadejte věk:\n")
+            try:
+                vek = int(vek)
+                evidencnisystem.vytvor_pojisteneho(jmeno, prijmeni, vek, telefon)
+                input("Data byla uložena, pokračujte libovolnou klávesou...")
+            except ValueError:
+                print("Věk musí být číslo!")
+                pokracovat = input("Pokracovat? Y/N: ")
+                if pokracovat != "Y":
+                    break
+
+        elif vyber == 2:
+            evidencnisystem.vypis_pojistencu()
+            input("Pokračujte libovolnou klávesou...")
+
+
+        elif vyber == 3:
+            jmeno = input("Zadejte jmeno pojištěného:\n").strip()
+            prijmeni = input("Zadejte příjmení pojištěného:\n").strip()
+            print(evidencnisystem.vrat_pojistence(jmeno, prijmeni))
+            input("Pokračujte libovolnou klávesou...")
+
+
+        elif vyber == 4:
+            print(Pozdrav.get_rozlouceni())
+            time.sleep(1)
+            break
