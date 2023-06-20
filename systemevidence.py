@@ -64,6 +64,13 @@ class SystemEvidence():
     def vrat_pojistence(self, jmeno, prijmeni):
         return self.vyhledej_pojistence(jmeno, prijmeni)
 
+    def pokracovat_v_zadavani(self, text):
+        print(f"{text} musí být číslo!")
+        pokracovat = input("Pokracovat? Y/N: ")
+        if pokracovat not in ["y", "Y"]:
+            return(False)
+
+
 class Programrun():
     evidencnisystem = SystemEvidence()
 
@@ -74,10 +81,10 @@ class Programrun():
         try:
             vyber = int(vyber)
         except ValueError:
-            print("Výběr musí být číslo")
-            pokracovat = input("Pokracovat? Y/N: ")
-            if pokracovat != "Y":
+            text = ("Výběr")
+            if evidencnisystem.pokracovat_v_zadavani(text) == False:
                 break
+
 
         if vyber == 1:
             jmeno = input("Zadejte jméno pojištěného:\n").strip()
@@ -89,10 +96,10 @@ class Programrun():
                 evidencnisystem.vytvor_pojisteneho(jmeno, prijmeni, vek, telefon)
                 input("Data byla uložena, pokračujte libovolnou klávesou...")
             except ValueError:
-                print("Věk musí být číslo!")
-                pokracovat = input("Pokracovat? Y/N: ")
-                if pokracovat != "Y":
+                text = ("Věk")
+                if evidencnisystem.pokracovat_v_zadavani(text) == False:
                     break
+
 
         elif vyber == 2:
             evidencnisystem.vypis_pojistencu()

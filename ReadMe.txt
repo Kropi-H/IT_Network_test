@@ -10,5 +10,5 @@ Zobrazení seznamu všech pojištěných
 
 Vyhledání pojištěného podle jména a příjmení
 
-1. Vytvořit z proměnných instanci pojistence (jmeno, prijmeni, vek, telefonni cislo)
-2. Ulozit ho do listu pojistenců
+Závěrečná práce by se dala ještě doleštit. Ale chtěl bych stihnout ještě
+začít pokročilejsí s frameworkem Flask.
